@@ -1,13 +1,11 @@
 ## nick-shell
 
-* copy_deploy.sh  拷贝部署脚本
+* copy_deploy.sh	# 拷贝部署脚本
   
-> chmod +x copy_deploy.sh
+* vhost.sh			# 虚拟主机管理脚本
 
-> ./copy_deploy.sh
+* installMysql.sh	# 安装MySQL5.7
 
-* vhost.sh  虚拟主机管理脚本
+* installPhp.sh		# 安装PHP5.6.--
 
-> chmod +x vhost.sh
-> su
-> ./vhost.sh
+* installNginx.sh	# 安装Nginx
