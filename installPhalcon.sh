@@ -2,6 +2,9 @@
 # 安装Phalcon框架及devtools, 用Root权限.
 # @farwish  BSD-License
 
+# First step：add extension=phalcon.so in php.ini !
+# Then run this script.
+
 current_path=`pwd`
 cphalcon_url=git://github.com/phalcon/cphalcon.git
 cphalcon_tag=v3.0.1
@@ -40,4 +43,4 @@ echo "phalcon.php 命令加入/usr/bin/phalcon"
 
 ln -s ${current_path}/phalcon-devtools/phalcon.php /usr/bin/phalcon
 
-echo "完毕! 请将 extension=phalcon.so 加入php.ini , 重启php-fpm!"
+echo "Complete! "
