@@ -4,6 +4,7 @@
 
 # First step：add extension=phalcon.so in php.ini !
 # Then run this script.
+# Restart php-fpm.
 
 current_path=`pwd`
 cphalcon_url=git://github.com/phalcon/cphalcon.git
