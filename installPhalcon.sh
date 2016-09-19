@@ -6,11 +6,20 @@
 # Then run this script.
 # Restart php-fpm.
 
+echo "
+ ----------------------------------------------
+| 欢迎使用使用安装脚本.                        |
+| 以下填写 Phalcon 和 phalcon-devtools 的版本. |
+ ----------------------------------------------
+"
+
 current_path=`pwd`
 cphalcon_url=git://github.com/phalcon/cphalcon.git
-cphalcon_tag=v3.0.1
 phalcon_devtools_url=git://github.com/phalcon/phalcon-devtools.git
-phalcon_devtools_tag=v3.0.1
+
+read -p "请输入要安装的 Phalcon tag版本( 当前推荐 phalcon-v2.0.13 ):" -t 30 cphalcon_tag
+
+read -p "请输入要安装的 phalcon-devtools tag版本( 当前推荐 v2.0.13 ):" -t 30 phalcon_devtools_tag
 
 if [ ! -d ${current_path}/cphalcon ]; then
 
