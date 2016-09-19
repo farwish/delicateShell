@@ -26,6 +26,8 @@ cd /usr/local/mysql
 chown -R mysql:mysql .
 
 # 初始化基础数据库
+# data-directory-initialize: http://dev.mysql.com/doc/refman/5.6/en/data-directory-initialization.html
+# /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/usr/local/mysql/data --explicit-defaults-for-timestamp
 ./bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --explicit-defaults-for-timestamp
 
 # 复制模板配置文件
