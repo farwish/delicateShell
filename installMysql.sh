@@ -39,8 +39,10 @@ source /etc/profile
 
 # 手动配置项
 # vi /etc/my.cnf
-# 修改 datadir=/usr/local/mysql/data
-# 加入跟随 STRICT_TRANS_TABLES 的选项, 文件结尾没有换行时可以用命令. ( echo -n ,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER >> /etc/my.cnf )
+# datadir=/usr/local/mysql/data
+# 去掉 /etc/my.cnf 里面的( ,STRICT_TRANS_TABLES )；这样便不会严格检查字段默认值，详情见：
+#    http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables
+# 防止insert等操作没有默认值时报错,本条不再有效: 加入跟随 STRICT_TRANS_TABLES 的选项, 文件结尾没有换行时可以用命令. ( echo -n ,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER >> /etc/my.cnf )
 
 # 启动
 # ./support-files/mysql.server start
