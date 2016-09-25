@@ -1,7 +1,8 @@
 #!/bin/bash
 # 先装MySQL, 后源码包安装Php
-# 注意：不使用下载的最新libpng、libjpeg，PHP不支持, 就用yum安装的, freetype 使用载在的.
-# @farwish
+# 备注：1. 本脚本不使用下载最新libpng、libjpeg, PHP不支持, 是使用yum安装的.
+#       2. 默认只支持PDO, 不再支持--with-mysql, --with-mysqli.
+# @farwish.com BSD-License
 
 # 存档目录
 arch_path=/opt/Archive/

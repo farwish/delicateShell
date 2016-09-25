@@ -1,6 +1,6 @@
 #!/bin/bash
 # Nginx安装
-# @farwish
+# @farwish.com BSD-License
 
 arch_path=/opt/Archive/
 

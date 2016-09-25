@@ -1,6 +1,7 @@
 #!/bin/bash
 # 先装MySQL, 后源码包安装Php
-# @farwish
+# 注意：请使用 installPhpUseDefaultLibpng.sh 代替本脚本, 因为php5.6.25不支持最新jpeg9.
+# @farwish.com BSD-License
 
 # 存档目录
 arch_path=/opt/Archive/

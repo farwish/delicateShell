@@ -1,6 +1,6 @@
 #!/bin/bash
 # Nginx虚拟主机管理脚本V1.0
-# @weiChen <farwish@live.com> BSD License
+# @farwish.com BSD-License
 
 echo "
  --------------------------------

@@ -1,6 +1,6 @@
 #!/bin/bash
-# 源码包安装MySQL
-# @farwish
+# 源码包安装MySQL-5.7.15
+# @farwish.com BSD-License
 
 wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
 

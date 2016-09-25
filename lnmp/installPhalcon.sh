@@ -1,6 +1,6 @@
 #!/bin/bash
 # 安装Phalcon框架及devtools, 用Root权限.
-# @farwish  BSD-License
+# @farwish.com BSD-License
 
 # First step：add extension=phalcon.so in php.ini !
 # Then run this script.
