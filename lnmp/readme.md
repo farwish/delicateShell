@@ -1,3 +1,10 @@
-## 推荐运行顺序：
+## lnmp环境独立安装脚本.
 
-> installMysql.sh, installPhpUseDefaultLibpng.sh, installNginx.sh, installPhalcon.sh
+> 在ECS的CentOS7.0-64bit系统中可靠运行.
+
+> 运行顺序：
+
+ installMysql.sh  
+ installPhpUseDefaultLibpng.sh  
+ installNginx.sh  
+ installPhalcon.sh  

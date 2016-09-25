@@ -1,7 +1,5 @@
 ## delicate-shell
 
-directory structure:  
-
 ```
 lnmp/  
   |_ installMysql.sh  
