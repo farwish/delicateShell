@@ -1,7 +1,7 @@
 #!/bin/bash
 # 先装MySQL, 后源码包安装Php
 # 备注：1. 本脚本不使用下载最新libpng、libjpeg, PHP不支持, 是使用yum安装的.
-#       2. 默认只支持PDO, 不再支持--with-mysql, --with-mysqli.
+#       2. 默认只支持PDO, 不再支持--with-mysql.
 # @farwish.com BSD-License
 
 # 存档目录
