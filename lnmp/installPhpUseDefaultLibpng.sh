@@ -58,11 +58,11 @@ echo "配置PHP..."
 
 cd ${arch_path_php}
 
-# mysql5.7 不再支持 --with-mysql 和 --with-mysqli
+# mysql5.7 不再支持 --with-mysql
 # 要使用非pdo等其它驱动，推荐使用mysqlnd：http://php.net/manual/en/mysqlinfo.library.choosing.php
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
-./configure --with-libdir=lib64 --prefix=${php_path} --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt --with-openssl --enable-pcntl --enable-soap --enable-opcache
+./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt --with-openssl --enable-pcntl --enable-soap --enable-opcache
 
 echo "编译PHP..."
 
