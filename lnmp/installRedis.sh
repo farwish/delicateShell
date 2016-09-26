@@ -37,7 +37,10 @@ echo "
 
 sh "$redis_src"/utils/install_server.sh
 
-# Server Usage:
+# 手动加环境变量:
+# echo -n ":/usr/local/redis/bin" >> /etc/profile
+
+# 服务控制:
 # /etc/init.d/redis_6379 start|stop|restart|status
 
 echo "Completed."
