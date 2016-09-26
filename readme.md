@@ -7,5 +7,6 @@ lnmp/
   |_ installPhpUseDefaultLibpng.sh
   |_ installNginx.sh  
   |_ installPhalcon.sh
+  |_ installRedis.sh
 vhost.sh
 ```

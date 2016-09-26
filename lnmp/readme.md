@@ -7,4 +7,5 @@
 >    installMysql.sh  
 >    installPhpUseDefaultLibpng.sh  
 >    installNginx.sh  
->    installPhalcon.sh  
+>    installPhalcon.sh # 框架  
+>    installRedis.sh  
