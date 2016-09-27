@@ -16,8 +16,8 @@
 
 > Usage: redis start|stop|restart|status
 
-`cp /etc/init.d/redis_6379 /usr/local/redis/bin`
-`redis start` # 启动redis
+> `cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
+> `redis start` # 启动redis
 
 --
 
@@ -25,7 +25,7 @@
 
 > Usage: mysql.server  {start|stop|restart|reload|force-reload|status}  [ MySQL server options ]
 
-`mysql.server start` # 启动 mysql
+> `mysql.server start` # 启动 mysql
 
 --
 
@@ -33,7 +33,7 @@
 
 > Usage: init.d.php-fpm {start|stop|force-quit|restart|reload|status}
 
-`init.d.php-fpm start` # 启动 php-fpm
+> `init.d.php-fpm start` # 启动 php-fpm
 
 --
 
@@ -41,8 +41,8 @@
 
 > Usage: nginx [-?hvVtTq] [-s signal] [-c filename] [-p prefix] [-g directives]
 
-`nginx`  # 启动 nginx；安装时已制定配置文件，所以可以省略制定配置文件  
-`nginx -s reload` # 重载工作进程，使配置生效  
-`pkill -9 nginx` # 关闭 nginx  
+> `nginx`  # 启动 nginx；安装时已制定配置文件，所以可以省略制定配置文件  
+> `nginx -s reload` # 重载工作进程，使配置生效  
+> `pkill -9 nginx` # 关闭 nginx  
 
 --
