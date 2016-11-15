@@ -1,5 +1,6 @@
 #!/bin/bash
 # 源码包安装MySQL-5.7.15
+# 适用centos7-64bit,其余可以尝试.
 # @farwish.com BSD-License
 
 archiveDir=/opt/Archive
@@ -7,6 +8,10 @@ mysqlSource=http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
 mysqlGz=mysql-5.7.15.tar.gz
 mysqlName=mysql-5.7.15
 installDir=/usr/local/mysql
+
+# 最小化centos没有gcc-g++
+echo '安装依赖包...'
+yum install -y wget gcc* cmake bison ncurses-devel.x86_64
 
 if [ -d $archiveDir ]
     then
@@ -27,9 +32,6 @@ if [ -d ${archiveDir}/${mysqlName} ]; then
     cd ${archiveDir}/${mysqlName}
 fi
 
-# 依赖包
-yum install -y cmake gcc-g++ ncurses-devel.x86_64
- 
 # 新用户, 用户组
 groupadd mysql
 useradd -r -g mysql -s /bin/false mysql
