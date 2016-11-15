@@ -38,8 +38,9 @@ chown -R mysql:mysql .
 cp ./support-files/my-default.cnf /etc/my.cnf
 
 # 环境变量, -n 不输出换行, 便于后面php环境变量追加连接
-echo -n 'PATH=$PATH:/usr/local/mysql/bin' >> /etc/profile
-source /etc/profile
+if [ -e /ect/my.cnf ]; then
+    echo -n 'PATH=$PATH:/usr/local/mysql/bin' >> /etc/profile
+    source /etc/profile
 
 # 手动配置项
 # vi /etc/my.cnf
@@ -51,11 +52,12 @@ source /etc/profile
 # 启动
 # ./support-files/mysql.server start
 
-echo "--------------------------------------------------------"
-echo "Install finished!"
-echo "After set /etc/my.cnf , you could start mysql manually!"
-echo "Start: /usr/local/mysql/support-files/mysql.server start"
-echo "Update password above immeditialy , example:"
-echo " ( alter user 'root'@'localhost' identified by '123456' )"
-echo "--------------------------------------------------------"
+    echo "--------------------------------------------------------"
+    echo "Install finished!"
+    echo "After set /etc/my.cnf , you could start mysql manually!"
+    echo "Start: /usr/local/mysql/support-files/mysql.server start"
+    echo "Update password above immeditialy , example:"
+    echo " ( alter user 'root'@'localhost' identified by '123456' )"
+    echo "--------------------------------------------------------"  
+fi
 
