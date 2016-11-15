@@ -2,7 +2,7 @@
 # Nginx安装
 # @farwish.com BSD-License
 
-arch_path=/opt/Archive/
+archiveDir=/opt/Archive/
 
 nginx_path=/usr/local/nginx/
 
