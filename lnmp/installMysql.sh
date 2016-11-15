@@ -3,6 +3,10 @@
 # @farwish.com BSD-License
 
 archiveDir=/opt/Archive
+mysqlSource=http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
+mysqlGz=mysql-5.7.15.tar.gz
+mysqlName=mysql-5.7.15
+installDir=/usr/local/mysql
 
 if [ -d $archiveDir ]
     then
@@ -12,9 +16,13 @@ if [ -d $archiveDir ]
         cd $archiveDir
 fi
 
-wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
-
-tar zxf mysql-5.7.15.tar.gz
+if [ -d $mysqlName ]; then
+    cd $mysqlName
+else
+    wget $mysqlSource
+    tar zxf $mysqlGz
+    cd $mysqlName
+fi
 
 # 依赖包
 yum install -y cmake gcc-g++ ncurses-devel.x86_64
@@ -24,13 +32,13 @@ groupadd mysql
 useradd -r -g mysql -s /bin/false mysql
 
 # 编译安装
-cd ${archiveDir}/mysql-5.7.15
+cd ${archiveDir}/${mysqlName}
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/usr/local/mysql/data -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/local/boost_for_mysql
+cmake -DCMAKE_INSTALL_PREFIX=${installDir} -DMYSQL_DATADIR=${installDir}/data -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/local/boost_for_mysql
 
 make && make install
 
-cd /usr/local/mysql
+cd ${installDir}
 
 # 更改所有者
 chown -R mysql:mysql .
@@ -38,14 +46,14 @@ chown -R mysql:mysql .
 # 初始化基础数据库
 # data-directory-initialize: http://dev.mysql.com/doc/refman/5.6/en/data-directory-initialization.html
 # /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/usr/local/mysql/data --explicit-defaults-for-timestamp
-./bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --explicit-defaults-for-timestamp
+./bin/mysqld --initialize --user=mysql --datadir=${installDir}/data --explicit-defaults-for-timestamp
 
 # 复制模板配置文件
 cp ./support-files/my-default.cnf /etc/my.cnf
 
 # 环境变量, -n 不输出换行, 便于后面php环境变量追加连接
 if [ -e /ect/my.cnf ]; then
-    echo -n 'PATH=$PATH:/usr/local/mysql/bin' >> /etc/profile
+    echo -n "PATH=$PATH:${installDir}/bin" >> /etc/profile
     source /etc/profile
 
 # 手动配置项
@@ -61,9 +69,8 @@ if [ -e /ect/my.cnf ]; then
     echo "--------------------------------------------------------"
     echo "Install finished!"
     echo "After set /etc/my.cnf , you could start mysql manually!"
-    echo "Start: /usr/local/mysql/support-files/mysql.server start"
+    echo "Start: ${installDir}/support-files/mysql.server start"
     echo "Update password above immeditialy , example:"
     echo " ( alter user 'root'@'localhost' identified by '123456' )"
     echo "--------------------------------------------------------"  
 fi
-
