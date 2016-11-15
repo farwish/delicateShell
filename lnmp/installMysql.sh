@@ -7,7 +7,7 @@ archiveDir=/opt/Archive
 if [ -d $archiveDir ]; then
     cd $archiveDir
 else
-    mkdir /opt/Archive
+    mkdir $archiveDir
     cd $archiveDir
 fi
 
