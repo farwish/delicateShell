@@ -69,6 +69,7 @@ if [ -f /ect/my.cnf ]; then
     echo "--------------------------------------------------------"
     echo "Complete! 安装完成"
     echo "After set /etc/my.cnf , you could start mysql manually!"
+    echo "  编辑: basedir=${installDir}"
     echo "  编辑: datadir=${installDir}/data"
     echo "  补充: 末尾加入 ,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"
     echo "Start: ${installDir}/support-files/mysql.server start"
