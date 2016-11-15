@@ -7,8 +7,9 @@ archiveDir=/opt/Archive
 if [ -d $archiveDir ]; then
 else
     mkdir /opt/Archive
-    cd $archiveDir
 fi
+
+cd $archiveDir
 
 wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
 
