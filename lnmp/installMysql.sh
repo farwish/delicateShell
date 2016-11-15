@@ -16,11 +16,14 @@ if [ -d $archiveDir ]
         cd $archiveDir
 fi
 
-if [ -d ${archiveDir}/${mysqlName} ]; then
-    cd ${archiveDir}/${mysqlName}
+if [ -f ${archiveDir}/${mysqlGz} ]; then
+    tar zxf ${archiveDir}/${mysqlGz}
 else
     wget $mysqlSource
     tar zxf ${archiveDir}/${mysqlGz}
+fi
+
+if [ -d ${archiveDir}/${mysqlName} ]; then
     cd ${archiveDir}/${mysqlName}
 fi
 
