@@ -16,12 +16,12 @@ if [ -d $archiveDir ]
         cd $archiveDir
 fi
 
-if [ -d $mysqlName ]; then
-    cd $mysqlName
+if [ -d ${archiveDir}/${mysqlName} ]; then
+    cd ${archiveDir}/${mysqlName}
 else
     wget $mysqlSource
-    tar zxf $mysqlGz
-    cd $mysqlName
+    tar zxf ${archiveDir}/${mysqlGz}
+    cd ${archiveDir}/${mysqlName}
 fi
 
 # 依赖包
@@ -32,8 +32,6 @@ groupadd mysql
 useradd -r -g mysql -s /bin/false mysql
 
 # 编译安装
-cd ${archiveDir}/${mysqlName}
-
 cmake -DCMAKE_INSTALL_PREFIX=${installDir} -DMYSQL_DATADIR=${installDir}/data -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/local/boost_for_mysql
 
 make && make install
