@@ -4,7 +4,7 @@
 
 archiveDir=/opt/Archive
 
-if [! -d $archiveDir ]; then
+if [ !-d $archiveDir ]; then
     mkdir /opt/Archive
     cd $archiveDir
 fi
