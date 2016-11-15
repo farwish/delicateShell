@@ -5,6 +5,7 @@
 > 运行顺序：
 
 >    installMysql.sh  
+>    ( curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installMysql.sh | sh )
 >    installPhpUseDefaultLibpng.sh  
 >    installNginx.sh  
 >    installPhalcon.sh # 框架  
