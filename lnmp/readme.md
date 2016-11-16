@@ -2,14 +2,18 @@
 
 > 可在ECS的CentOS7.0-64bit系统中可靠运行。
 
-> 运行顺序：
+> 推荐运行顺序：
 
 >    installMysql.sh  
->       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh )
->    installPhpUseDefaultLibpng.sh  
+>       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh )  
 >    installNginx.sh  
->    installPhalcon.sh # 框架  
+>       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh )  
+>    installPhpUseDefaultLibpng.sh  
+>       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh ) 
+>    installPhalcon.sh  
+>       ( curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installPhalcon.sh | sh )  
 >    installRedis.sh  
+>       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh )
 
 ## 管理.
 
