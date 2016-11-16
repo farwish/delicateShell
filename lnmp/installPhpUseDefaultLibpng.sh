@@ -1,6 +1,6 @@
 #!/bin/bash
-# 先装MySQL, 后源码包安装Php
-# 备注：1. 本脚本不使用下载最新libpng、libjpeg, PHP不支持, 是使用yum安装的.
+# centos7安装php. (先装MySQL, 后源码包安装Php)
+# 备注：1. PHP不支持最新libpng、libjpeg, 所以本脚本中用yum安装这个两个依赖包.
 #       2. 默认只支持mysqli/PDO, 不再支持--with-mysql.
 # @farwish.com BSD-License
 
@@ -28,6 +28,12 @@ freetype_url=http://downloads.sourceforge.net/project/freetype/freetype2/2.7/${f
 ## PHP和附加组件的依赖包 ##
 yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel libmcrypt libmcrypt-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
 
+# centos7 kernel-3.10.237中已不含libmcrypt, 需自行下载
+wget http://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz
+tar zxf libmcrypt-2.5.8.tar.gz
+cd libmcrypt-2.5.8
+./configure
+make && make install
 
 cd ${arch_path}
 
@@ -74,10 +80,9 @@ cp ${php_path}etc/php-fpm.conf.default ${php_path}etc/php-fpm.conf
 cp ${arch_path_php}sapi/fpm/init.d.php-fpm ${php_path}sbin/init.d.php-fpm
 chmod +x ${php_path}sbin/init.d.php-fpm
 
-echo "设置环境变量..."
+echo "\Complete!\n"
 
-echo -n ":"${php_path}"bin:"${php_path}"sbin" >> /etc/profile
-source /etc/profile
-
-echo "请手动启动PHP: init.d.php-fpm start"
+echo "[设置环境变量 & 启动 ]"
+echo "1. 手动将 :${php_path}bin:${php_path}sbin 加入 /ect/profile，并 source /etc/profile"
+echo "2. 手动启动PHP: init.d.php-fpm start"
 # init.d.php-fpm start
