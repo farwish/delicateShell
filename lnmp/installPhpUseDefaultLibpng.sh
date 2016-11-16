@@ -26,13 +26,13 @@ freetype_src=freetype-2.7
 freetype_url=http://downloads.sourceforge.net/project/freetype/freetype2/2.7/${freetype_bagname}
 
 ## PHP和附加组件的依赖包 ##
-yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel libmcrypt libmcrypt-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
+yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
 
 # centos7 kernel-3.10.237中已不含libmcrypt, 需自行下载
 wget http://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz
 tar zxf libmcrypt-2.5.8.tar.gz
 cd libmcrypt-2.5.8
-./configure
+./configure --prefix=/usr/local/libmcrypt
 make && make install
 
 cd ${arch_path}
@@ -67,7 +67,7 @@ cd ${arch_path_php}
 # 要使用非pdo等其它驱动，推荐使用mysqlnd：http://php.net/manual/en/mysqlinfo.library.choosing.php
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
-./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt --with-openssl --enable-pcntl --enable-soap --enable-opcache=no
+./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt=/usr/local/libmcrypt --with-openssl --enable-pcntl --enable-soap --enable-opcache
 
 echo "编译PHP..."
 
