@@ -19,10 +19,11 @@
 
 > [ redis ]
 
-> Usage: redis start|stop|restart|status
+> /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 
-> `cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
-> `redis start` # 启动redis
+> #Usage: redis start|stop|restart|status
+> #`cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
+> #`redis start` # 启动redis
 
 --
 
