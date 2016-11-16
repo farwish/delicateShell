@@ -5,15 +5,20 @@
 > 推荐运行顺序：
 
 >    installMysql.sh  
->       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh )  
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh`  
+
 >    installNginx.sh  
->       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh )  
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
+
 >    installPhpUseDefaultLibpng.sh  
->       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh )  
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
+
 >    installRedis.sh  
->       ( curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh )
->    installPhalcon.sh  // 注:先把 extension=phalcon.so 加入php.ini, 因为扩展和开发工具一起装, 开发工具又依赖扩展的存在, 所以提前加好
->       ( curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installPhalcon.sh | sh ) 
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
+
+>    installPhalcon.sh  
+>    `安装phalcon框架前, 先把 extension=phalcon.so 加入php.ini, 因为扩展和开发工具一起装, 开发工具又依赖扩展的存在, 所以提前加好`  
+>    `curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installPhalcon.sh | sh`  
 
 ## 管理.
 
@@ -21,9 +26,11 @@
 
 > /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 
-> // Usage: redis start|stop|restart|status
-> // `cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
-> // `redis start` # 启动redis
+```
+// Usage: redis start|stop|restart|status  
+// `cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
+// `redis start` # 启动redis  
+```
 
 --
 
