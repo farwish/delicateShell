@@ -43,7 +43,7 @@ cp ${redis_src}/redis.conf ${redis_install_path}/etc/
 
 #sh "$redis_src"/utils/install_server.sh
 
-echo "\nCompleted.\n"
+echo -e "\nCompleted.\n"
 
 echo "[ 环境变量 & 启动 ]"
 echo "1. 手动将 :${redis_install_path}/bin 加入 /ect/profile"
