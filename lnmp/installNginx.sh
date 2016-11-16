@@ -31,10 +31,13 @@ echo "配置编译Nginx..."
 
 make && make install
 
-echo "设置环境变量..."
-echo -n ":${nginx_install_dir}sbin" >> /etc/profile
+echo -e "Complete!\n"
 
-echo "启动..."
-nginx
+echo "设置环境变量 & 启动..."
+echo "1. 请手动将 :${nginx_install_dir}sbin 加入 /etc/profile"
+echo "2. 启动使用 source /etc/profile && nginx"
 
-echo "Done!"
+#echo -n ":${nginx_install_dir}sbin" >> /etc/profile
+
+#echo "启动..."
+#nginx
