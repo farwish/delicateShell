@@ -35,10 +35,16 @@ echo "
 echo " 
 	 ---------------------------------------------------------"
 
-sh "$redis_src"/utils/install_server.sh
+mkdir ${redis_install_path}/etc/
+mkdir ${redis_install_path}/log/
+mkdir ${redis_install_path}/data/
+
+cp ${redis_src}/redis.conf ${redis_install_path}/etc/
+
+#sh "$redis_src"/utils/install_server.sh
 
 echo "\nCompleted.\n"
 
 echo "[ 环境变量 & 启动 ]"
 echo "1. 手动将 :${redis_install_path}/bin 加入 /ect/profile"
-echo -e "2. 启动 /etc/init.d/redis_6379 start\n"
+echo -e "2. 修改配置文件 ${redis_install_path}/etc/redis.conf (如 daeman, dir 等)"
