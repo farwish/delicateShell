@@ -16,10 +16,20 @@ echo "
 current_path=`pwd`
 cphalcon_url=git://github.com/phalcon/cphalcon.git
 phalcon_devtools_url=git://github.com/phalcon/phalcon-devtools.git
+phalcon_version=phalcon-v2.0.13
+phalcon_tool_version=v2.0.13
 
-read -p "请输入要安装的 Phalcon tag版本( 当前推荐 phalcon-v2.0.13 ):" -t 30 cphalcon_tag
+read -p "请输入要安装的 Phalcon tag版本( 不填默认 $phalcon_version ):" -t 30 cphalcon_tag
 
-read -p "请输入要安装的 phalcon-devtools tag版本( 当前推荐 v2.0.13 ):" -t 30 phalcon_devtools_tag
+read -p "请输入要安装的 phalcon-devtools tag版本( 不填默认 $phalcon_tool_version ):" -t 30 phalcon_devtools_tag
+
+if [ -z $cphalcon_tag ]; then
+    cphalcon_tag=$phalcon_version
+fi
+
+if [ -z $phalcon_devtools_tag ]; then
+    phalcon_devtools_tag=$phalcon_tool_version
+fi
 
 if [ ! -d ${current_path}/cphalcon ]; then
 
