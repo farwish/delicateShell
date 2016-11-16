@@ -19,7 +19,7 @@
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
 
 >    installPhalcon.sh  
->    `安装phalcon框架前, 先把 extension=phalcon.so 加入php.ini, 因为扩展和开发工具一起装, 开发工具又依赖扩展的存在, 所以提前加好`  
+>    `执行前, 将extension=phalcon.so加入php.ini, 因为脚本将扩展和开发工具一起装了, 开发工具又依赖扩展, 所以提前加好`  
 >    `curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installPhalcon.sh | sh`  
 
 ## 管理.
