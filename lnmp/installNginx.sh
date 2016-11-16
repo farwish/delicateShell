@@ -31,6 +31,9 @@ else
     exit 2
 fi
 
+# the HTTP rewrite module requires the PCRE library.
+yum install -y pcre-devel.x86_64
+
 echo "配置编译Nginx..."
 
 ./configure --prefix=${nginx_install_dir} --conf-path=${nginx_install_dir}conf/nginx.conf
