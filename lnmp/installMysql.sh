@@ -55,8 +55,8 @@ chown -R mysql:mysql .
 cp ./support-files/my-default.cnf /etc/my.cnf
 
 # 环境变量, -n 不输出换行, 便于后面php环境变量追加连接
-if [ -f /ect/my.cnf ]; then
-    echo -n "PATH=$PATH:${installDir}/bin" >> /etc/profile
+# echo -n "PATH=$PATH:${installDir}/bin" >> /etc/profile
+# 还是结尾提示吧.
 
 # 手动配置项
 # vi /etc/my.cnf 加入：datadir=/usr/local/mysql/data
@@ -66,14 +66,14 @@ if [ -f /ect/my.cnf ]; then
 # 启动
 # ./support-files/mysql.server start
 
-    echo "--------------------------------------------------------"
-    echo "Complete! 安装完成"
-    echo "After set /etc/my.cnf , you could start mysql manually!"
-    echo "  编辑: basedir=${installDir}"
-    echo "  编辑: datadir=${installDir}/data"
-    echo "  补充: 末尾加入 ,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"
-    echo "Start: ${installDir}/support-files/mysql.server start"
-    echo "  修改上面提到的root密码:"
-    echo "  alter user 'root'@'localhost' identified by '123456'"
-    echo "--------------------------------------------------------"  
-fi
+echo "--------------------------------------------------------"
+echo "Complete! 安装完成"
+echo "After set /etc/my.cnf , you could start mysql manually!"
+echo "  编辑: basedir=${installDir}"
+echo "  编辑: datadir=${installDir}/data"
+echo "  补充: 末尾加入 ,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"
+echo "  变量: PATH=\$PATH:${installDir}/bin 加入 /etc/profile"
+echo "Start: ${installDir}/support-files/mysql.server start"
+echo "  修改上面提到的root密码:"
+echo "  alter user 'root'@'localhost' identified by '123456'"
+echo "--------------------------------------------------------"
