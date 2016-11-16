@@ -80,9 +80,9 @@ cp ${php_path}etc/php-fpm.conf.default ${php_path}etc/php-fpm.conf
 cp ${arch_path_php}sapi/fpm/init.d.php-fpm ${php_path}sbin/init.d.php-fpm
 chmod +x ${php_path}sbin/init.d.php-fpm
 
-echo "\Complete!\n"
+echo -e "\Complete!\n"
 
 echo "[设置环境变量 & 启动 ]"
 echo "1. 手动将 :${php_path}bin:${php_path}sbin 加入 /ect/profile，并 source /etc/profile"
-echo "2. 手动启动PHP: init.d.php-fpm start"
+echo -e "2. 手动启动PHP: init.d.php-fpm start\n"
 # init.d.php-fpm start
