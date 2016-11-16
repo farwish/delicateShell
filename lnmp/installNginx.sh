@@ -8,6 +8,16 @@ nginx_install_dir=/usr/local/nginx/
 nginx_bagname=nginx-1.10.1.tar.gz
 nginx_src=nginx-1.10.1
 
+if [ ! -d $archiveDir ]; then
+    mkdir $archiveDir
+fi
+
+if [ ! -d $archiveDir ]; then
+    exit 1
+fi
+
+cd $archiveDir
+
 if [ ! -e ${archiveDir}${nginx_bagname} ]; then
 	wget ${nginx_source_url}
 	tar zxf ${archiveDir}${nginx_bagname}
