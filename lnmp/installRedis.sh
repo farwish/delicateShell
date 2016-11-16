@@ -37,10 +37,8 @@ echo "
 
 sh "$redis_src"/utils/install_server.sh
 
-# 手动加环境变量:
-# echo -n ":/usr/local/redis/bin" >> /etc/profile
+echo "\nCompleted.\n"
 
-# 服务控制:
-# /etc/init.d/redis_6379 start|stop|restart|status
-
-echo "Completed."
+echo "[ 环境变量 & 启动 ]"
+echo "1. 手动将 :${redis_install_path}/bin 加入 /ect/profile"
+echo -e "2. 启动 /etc/init.d/redis_6379 start\n"
