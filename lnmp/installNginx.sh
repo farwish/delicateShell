@@ -19,9 +19,10 @@ fi
 cd $archiveDir
 
 if [ ! -e ${archiveDir}${nginx_bagname} ]; then
-	wget ${nginx_source_url}
-	tar zxf ${archiveDir}${nginx_bagname}
+    wget ${nginx_source_url}
 fi
+
+tar zxf ${archiveDir}${nginx_bagname}
 
 cd ${archiveDir}${nginx_src}
 
