@@ -33,8 +33,9 @@ fi
 
 if [ ! -d ${current_path}/cphalcon ]; then
 
-    echo "下载cphalcon..."
+    yum -y install git
 
+    echo "下载cphalcon..."
     git clone -b ${cphalcon_tag} ${cphalcon_url}
 
 fi
