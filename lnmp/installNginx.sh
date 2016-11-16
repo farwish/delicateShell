@@ -24,7 +24,12 @@ fi
 
 tar zxf ${archiveDir}${nginx_bagname}
 
-cd ${archiveDir}${nginx_src}
+if [ -d ${archiveDir}${nginx_src} ]; then
+    cd ${archiveDir}${nginx_src}
+else
+    echo "目录 ${archiveDir}${nginx_src} 不存在"
+    exit 2
+fi
 
 echo "配置编译Nginx..."
 
