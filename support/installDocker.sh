@@ -85,6 +85,8 @@ un_install() {
             yum -y remove $pkgname
         done
 
+        groupdel docker
+
         echo -e "
 Finished!\n
 To delete all images, containers, and volumes, run the following command:
