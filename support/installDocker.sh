@@ -80,7 +80,7 @@ un_install() {
         echo "You stop the action!"
         exit 2
     else
-        rows=`yum list installed | grep docker | awk '{printf $1}'`
+        rows=`yum list installed | grep docker | awk '{print $1}'`
         for pkgname in $rows; do
             yum -y remove $pkgname
         done
