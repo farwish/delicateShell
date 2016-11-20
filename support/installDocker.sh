@@ -31,7 +31,7 @@ repo_check() {
 
     if [ -e ${dockerfile} ]; then
         read -p "文件 $dockerfile 以存在, 是否覆盖? (y/n)" -t 30 answer
-        if [ -z $answer ] || [ $answer != 'y' ]; then
+        if [ $answer == 'n' ]; then
             echo 'You stop the action!'
             exit 1
         else
@@ -76,7 +76,7 @@ un_install() {
     echo "Inform:"
     read -p "Uninstall just remove the package, does not remove images, containers, volumes, or user-created configuration files on your host, do you want to continue? (y/n)" -t 30 answer
 
-    if [ -z $answer ] || [ $answer != 'y' ]; then
+    if [ $answer == 'n' ]; then
         echo "You stop the action!"
         exit 2
     else
