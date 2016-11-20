@@ -25,6 +25,8 @@ make && make install
 # extension=swoole.so
 pecl install swoole
 
-echo -e "\nCompleted!\n"
-echo -e "\n需要在php.ini中加入的配置有:\n"
-echo -e " extension=eio.so\n extension=libevent.so\n extension=redis.so\n extension=swoole.so\n"
+echo -e "\nCompleted! 要在php.ini中加入的配置有:\n"
+echo -e "extension=eio.so
+extension=libevent.so
+extension=redis.so
+extension=swoole.so\n"
