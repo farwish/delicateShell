@@ -67,9 +67,12 @@ do_install() {
         # 用户加入docker组
         usermod -aG docker $yourname
     fi
-
-    echo -e "Complete!\n
-Verify docker is installed correctly by running a test image in a container: 'docker  run --rm hello-world'."
+    
+    echo -e "
+Finished!\n
+测试docker是否正确安装, 如: 'docker run --rm hello-world'.
+将普通用户加入docker用户组, 如: 'usermod -aG docker weichen'
+新加入docker组的用户要运行docker run等命令需要重启系统生效.\n"
 }
 
 un_install() {
