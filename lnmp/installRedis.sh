@@ -9,15 +9,16 @@ redis_pkg_ext=.tar.gz
 redis_src=${current_path}/${redis_dir}
 redis_install_path=/usr/local/redis
 
+yum install -y wget gcc* cmake bison
+
+yum install -y tcl-devel.x86_64
+
 if [ ! -d $redis_src ]; then
 	wget $redis_url
 	tar zxf ${redis_dir}${redis_pkg_ext}
 fi
 
 cd ${redis_src}
-
-echo "安装依赖.."
-yum install -y tcl-devel.x86_64
 
 echo "编译安装(见README).."
 make && make PREFIX=$redis_install_path install

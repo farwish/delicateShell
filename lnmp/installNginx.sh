@@ -18,6 +18,11 @@ fi
 
 cd $archiveDir
 
+yum install -y wget gcc* cmake bison
+
+# the HTTP rewrite module requires the PCRE library.
+yum install -y pcre-devel.x86_64
+
 if [ ! -e ${archiveDir}${nginx_bagname} ]; then
     wget ${nginx_source_url}
 fi
@@ -30,9 +35,6 @@ else
     echo "目录 ${archiveDir}${nginx_src} 不存在"
     exit 2
 fi
-
-# the HTTP rewrite module requires the PCRE library.
-yum install -y pcre-devel.x86_64
 
 echo "配置编译Nginx..."
 

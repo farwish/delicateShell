@@ -2,9 +2,8 @@
 
 > 可在ECS的CentOS7.0-64bit系统(标准镜像)中可靠运行。
 
-> 推荐运行顺序：  
-> `Why? 比如mysql依赖bison,那么在脚本里就会用yum安装; nginx依赖pcre,脚本里也会安装; 而php也依赖bison和pcre,所以按顺序执行免去缺少库报错的烦恼`  
-> `Another? 或者当遇到提示你的系统缺少某个库时, 安装好依赖, make clean 后再执行一次安装脚本`  
+> 推荐运行顺序(非强制)：  
+> `提示: 当遇到提示你的系统缺少某个库时, 用yum安装好依赖, make clean 之后再执行一次安装脚本`  
 
 >    installMysql.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh`  

@@ -25,6 +25,8 @@ freetype_src=freetype-2.7
 # 依赖包地址
 freetype_url=http://downloads.sourceforge.net/project/freetype/freetype2/2.7/${freetype_bagname}
 
+yum install -y wget gcc* cmake bison
+
 ## PHP和附加组件的依赖包 ##
 yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
 
