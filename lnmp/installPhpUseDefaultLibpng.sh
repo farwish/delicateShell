@@ -36,7 +36,8 @@ if [ ! -d libmcrypt-2.5.8 ]; then
         tar zxf libmcrypt-2.5.8.tar.gz
 fi
 cd libmcrypt-2.5.8
-./configure --prefix=/usr/local/libmcrypt
+# 装在 /usr/local 下
+./configure
 make && make install
 
 cd ${arch_path}
@@ -75,7 +76,8 @@ cd ${arch_path_php}
 # 要使用非pdo等其它驱动，推荐使用mysqlnd：http://php.net/manual/en/mysqlinfo.library.choosing.php
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
-./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt-dir=/usr/local/libmcrypt --with-openssl --enable-pcntl --enable-soap --enable-opcache
+# 开启调试模式加 --enable-debug，更多请看 ./configure --help.
+./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-mcrypt=/usr/local/lib --with-openssl --enable-pcntl --enable-soap --enable-opcache=no
 
 echo "编译PHP..."
 
