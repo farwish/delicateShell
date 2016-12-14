@@ -19,7 +19,7 @@
 
 >    installPhalcon.sh  
 >    `执行前, 将extension=phalcon.so加入php.ini, 因为脚本将扩展和开发工具一起装了, 开发工具又依赖扩展, 所以提前加好`  
->    `curl -sS https://github.com/farwish/delicateShell/blob/master/lnmp/installPhalcon.sh | sh`  
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhalcon.sh | sh`  
 
 ## 管理.
 
