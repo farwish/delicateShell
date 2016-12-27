@@ -4,6 +4,7 @@
 # @farwish.com BSD-License
 
 archiveDir=/opt/Archive
+# 官网找源码包: Select Platform 不是选 Linux-Generic 而是选择 Source Code
 mysqlSource=http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.15.tar.gz
 mysqlGz=mysql-5.7.15.tar.gz
 mysqlName=mysql-5.7.15
@@ -76,4 +77,5 @@ echo "  变量: PATH=\$PATH:${installDir}/bin 加入 /etc/profile"
 echo "Start: ${installDir}/support-files/mysql.server start"
 echo "  修改上面提到的root密码:"
 echo "  alter user 'root'@'localhost' identified by '123456'"
+echo "  数据库命令帮助通常以问号开头(如: ?grant)."
 echo "--------------------------------------------------------"
