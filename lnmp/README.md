@@ -11,8 +11,11 @@
 >    installNginx.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
 
->    installPhpUseDefaultLibpng.sh  
+>    installPhpUseDefaultLibpng.sh  (php5.6)
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
+
+>    installPhp7.sh  (php7.0.14)  
+>    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh`  
 
 >    installRedis.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
