@@ -99,7 +99,7 @@ cp ${arch_path_php}sapi/fpm/init.d.php-fpm ${php_path}sbin/init.d.php-fpm
 chmod +x ${php_path}sbin/init.d.php-fpm  
 
 # 注意：PHP7 已将 php-fpm.conf 分拆，需要执行：cd /usr/local/php7/etc/php-fpm.d/ && cp www.conf.default www.conf  
-cd {$php_path}etc/php-fpm.d/
+cd ${php_path}etc/php-fpm.d/
 cp www.conf.default www.conf
 
 echo -e "\nComplete!\n"
