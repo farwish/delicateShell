@@ -1,21 +1,30 @@
 ## lnmp环境独立安装脚本.
 
 > 可在ECS的CentOS7.0-64bit系统(标准镜像)中可靠运行。
-
-> 推荐运行顺序(非强制)：  
+> 推荐运行顺序 ( 非强制 )：  
 > `提示: 当遇到提示你的系统缺少某个库时, 用yum安装好依赖, make clean 之后再执行一次安装脚本`  
+
+---
 
 >    installMysql.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh`  
 
+---
+
 >    installNginx.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
+
+---
 
 >    installPhpUseDefaultLibpng.sh  ( php5.6.25 )  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
 
->    installPhp7.sh  ( php7.0.14 )  
+---
+
+>    installPhp7.sh  ( php7.1.4 )  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh`  
+
+---
 
 >    installRedis.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
