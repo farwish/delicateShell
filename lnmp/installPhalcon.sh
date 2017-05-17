@@ -1,6 +1,16 @@
 #!/bin/bash
 # 安装Phalcon框架及devtools, 用Root权限.
+# ( 不建议使用了，说明如下 )
 # @farwish.com BSD-License
+
+# 请根据官方最新文档来安装.
+# Example:
+#
+# git clone -b v3.0.2 https://github.com/phalcon/cphalcon.git
+# cd cphalcon/build/php7/64bits/
+# /usr/local/php7.0.14/bin/phpize
+# ./configure --with-php-config=/usr/lcoal/php7.0.14/bin/php-config
+# make && make install
 
 # First step：add extension=phalcon.so in php.ini !
 # Then run this script.

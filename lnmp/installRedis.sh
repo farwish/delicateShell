@@ -50,3 +50,6 @@ echo "[ 环境变量 & 启动 ]"
 echo "1. 手动将 :${redis_install_path}/bin 加入 /ect/profile"
 echo "2. 修改配置文件 ${redis_install_path}/etc/redis.conf (如 daeman, dir 等)"
 echo "3. 启动 redis-server ${redis_install_path}/etc/redis.conf"
+
+rm -rf ${redis_dir}
+rm -rf ${redis_dir}${redis_pkg_ext}

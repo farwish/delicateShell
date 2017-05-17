@@ -1,6 +1,14 @@
 #/bin/bash
-# php扩展全家桶.
+# php扩展全家桶. ( 不建议使用了, 说明如下 )
 # @farwish.com BSD-License
+#
+# 根据需要用 pecl 安装所需常用扩展. 
+# Example:
+#
+# /usr/lcoal/php7.0.14/bin/pecl install redis-3.0.0
+# /usr/lcoal/php7.0.14/bin/pecl install yar-2.0.1
+# /usr/lcoal/php7.0.14/bin/pecl install swoole-1.9.1
+#
 
 php_path=/usr/local/php5.6.25/
 cur_dir=`pwd`

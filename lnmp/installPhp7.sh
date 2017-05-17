@@ -10,11 +10,14 @@ arch_path=/opt/Archive/
 # 软件安装目录
 soft_path=/usr/local/
 
+# Php版本
+php_version=php-7.1.5
+
 # PHP软件包位置
-arch_path_php=${arch_path}php-src/
+arch_path_php=${arch_path}php-src-${php_version}/
 
 # PHP目录
-php_path=${soft_path}php7.0.14/
+php_path=${soft_path}${php_version}/
 
 # gd依赖包名
 freetype_bagname=freetype-2.7.tar.gz
@@ -65,9 +68,8 @@ cd ${arch_path}
 
 if [ ! -d ${arch_path_php} ]; then
         echo "下载PHP..."
-        git clone -b php-7.0.14 https://github.com/php/php-src.git
-        #wget http://cn2.php.net/distributions/php-5.6.25.tar.gz
-        #tar zxf php-5.6.25.tar.gz
+        wget https://github.com/php/php-src/archive/${php_version}.tar.gz
+        tar zxf ${php_version}.tar.gz
 fi
 
 echo "配置PHP..."

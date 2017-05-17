@@ -11,18 +11,14 @@
 >    installNginx.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
 
->    installPhpUseDefaultLibpng.sh  (php5.6)
+>    installPhpUseDefaultLibpng.sh  ( php5.6.25 )  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
 
->    installPhp7.sh  (php7.0.14)  
+>    installPhp7.sh  ( php7.0.14 )  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh`  
 
 >    installRedis.sh  
 >    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
-
->    installPhalcon.sh  
->    `执行前, 将extension=phalcon.so加入php.ini, 因为脚本将扩展和开发工具一起装了, 开发工具又依赖扩展, 所以提前加好`  
->    `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhalcon.sh | sh`  
 
 ## 管理.
 
@@ -31,12 +27,12 @@
 > /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 
 ```
-// Usage: redis start|stop|restart|status  
-// `cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
-// `redis start` # 启动redis  
+Old Usage: redis start|stop|restart|status  
+`cp /etc/init.d/redis_6379 /usr/local/redis/bin`  
+`redis start` # 启动redis  
 ```
 
---
+---
 
 > [ mysql ]
 
@@ -44,7 +40,7 @@
 
 > `mysql.server start` # 启动 mysql
 
---
+---
 
 > [ php-fpm ]
 
@@ -52,7 +48,7 @@
 
 > `init.d.php-fpm start` # 启动 php-fpm
 
---
+---
 
 > [ nginx ]
 
@@ -62,4 +58,3 @@
 > `nginx -s reload` # 重载工作进程，使配置生效  
 > `pkill -9 nginx` # 关闭 nginx  
 
---
