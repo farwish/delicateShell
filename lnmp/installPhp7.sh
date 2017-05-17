@@ -1,5 +1,5 @@
 #!/bin/bash
-# centos7安装php. (先装MySQL, 后源码包安装Php)
+# centos7安装php7. (先装MySQL, From git repo)
 # 备注：1. PHP不支持最新libpng、libjpeg, 所以本脚本中用yum安装这个两个依赖包.
 #       2. 默认只支持mysqli/PDO, 不再支持--with-mysql.
 # @farwish.com BSD-License
@@ -10,11 +10,14 @@ arch_path=/opt/Archive/
 # 软件安装目录
 soft_path=/usr/local/
 
+# Php版本 7.1 stable
+php_version=php-7.1.4
+
 # PHP软件包位置
-arch_path_php=${arch_path}php-5.6.25/
+arch_path_php=${arch_path}php-src-${php_version}/
 
 # PHP目录
-php_path=${soft_path}php5.6.25/
+php_path=${soft_path}${php_version}/
 
 # gd依赖包名
 freetype_bagname=freetype-2.7.tar.gz
@@ -29,6 +32,9 @@ yum install -y wget gcc* cmake bison
 
 ## PHP和附加组件的依赖包 ##
 yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
+
+# ./buildconf needed
+yum install -y autoconf.noarch
 
 # centos7 kernel-3.10.237中已不含libmcrypt, 需自行下载
 if [ ! -d libmcrypt-2.5.8 ]; then
@@ -65,13 +71,15 @@ cd ${arch_path}
 
 if [ ! -d ${arch_path_php} ]; then
         echo "下载PHP..."
-        wget http://cn2.php.net/distributions/php-5.6.25.tar.gz
-        tar zxf php-5.6.25.tar.gz
+        wget https://github.com/php/php-src/archive/${php_version}.tar.gz
+        tar zxf ${php_version}.tar.gz
 fi
 
 echo "配置PHP..."
 
 cd ${arch_path_php}
+
+./buildconf --force
 
 # 要使用非pdo等其它驱动，推荐使用mysqlnd：http://php.net/manual/en/mysqlinfo.library.choosing.php
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
@@ -91,6 +99,8 @@ cp ${arch_path_php}sapi/fpm/init.d.php-fpm ${php_path}sbin/init.d.php-fpm
 chmod +x ${php_path}sbin/init.d.php-fpm  
 
 # 注意：PHP7 已将 php-fpm.conf 分拆，需要执行：cd /usr/local/php7/etc/php-fpm.d/ && cp www.conf.default www.conf  
+cd {$php_path}etc/php-fpm.d/
+cp www.conf.default www.conf
 
 echo -e "\nComplete!\n"
 
