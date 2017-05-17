@@ -10,8 +10,8 @@ arch_path=/opt/Archive/
 # 软件安装目录
 soft_path=/usr/local/
 
-# Php版本
-php_version=php-7.1.5
+# Php版本 7.1 stable
+php_version=php-7.1.4
 
 # PHP软件包位置
 arch_path_php=${arch_path}php-src-${php_version}/
