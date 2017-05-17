@@ -23,6 +23,9 @@ yum install -y wget gcc* cmake bison
 # the HTTP rewrite module requires the PCRE library.
 yum install -y pcre-devel.x86_64
 
+# the HTTP gzip module requires the zlib library
+yum install -y zlib-devel.x86_64
+
 if [ ! -e ${archiveDir}${nginx_bagname} ]; then
     wget ${nginx_source_url}
 fi
