@@ -33,6 +33,9 @@ yum install -y wget gcc* cmake bison
 ## PHP和附加组件的依赖包 ##
 yum install -y libxml libxml2 libxml2-devel libpng libpng-devel libjpeg libjpeg-devel freetype freetype-devel curl curl-devel openssl openssl-devel zlib-devel
 
+# ./buildconf needed
+yum install -y autoconf.noarch
+
 # centos7 kernel-3.10.237中已不含libmcrypt, 需自行下载
 if [ ! -d libmcrypt-2.5.8 ]; then
         wget http://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz
