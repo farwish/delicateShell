@@ -69,5 +69,7 @@ echo "        dir /usr/local/redis/data"
 echo "        logfile /usr/local/redis/log/redis-server.log"
 echo "3. 启动 redis-server ${redis_install_path}/etc/redis.conf"
 
+cd ${current_path}
+
 rm -rf ${redis_dir}
 rm -rf ${redis_dir}${redis_pkg_ext}
