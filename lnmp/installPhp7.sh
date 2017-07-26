@@ -5,13 +5,23 @@
 # @farwish.com BSD-License
 
 # 存档目录
-arch_path=/opt/Archive/
+arch_path=/opt/
 
 # 软件安装目录
 soft_path=/usr/local/
 
 # Php版本 7.1 stable
-php_version=php-7.1.4
+default_version=php-7.1.4
+
+read -p "
+Please input php version (example: ${default_version} , default is ${default_version}) :" php_version
+
+if test -z ${php_version}; then
+    echo -e "\nSelect the default php version : ${default_version}\n"
+    php_version=${default_version}
+else
+    echo -e "\nSelect the php version : ${php_version}\n"
+fi
 
 # PHP软件包位置
 arch_path_php=${arch_path}php-src-${php_version}/
