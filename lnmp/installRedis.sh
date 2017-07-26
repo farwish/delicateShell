@@ -62,9 +62,9 @@ echo '/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf &' >> /e
 echo -e "\nCompleted.\n"
 
 echo "[ 环境变量 & 启动 ]"
-echo "1. 手动将 :${redis_install_path}/bin 加入 /ect/profile"
+echo "1. 手动将 PATH=\$PATH:${redis_install_path}/bin 加入 /ect/profile, 执行 source /etc/profile"
 echo "2. 修改配置文件 ${redis_install_path}/etc/redis.conf"
-echo "   建议："
+echo "   建议修改项："
 echo "        daemonize yes"
 echo "        dir /usr/local/redis/data"
 echo "        logfile /usr/local/redis/log/redis-server.log"
