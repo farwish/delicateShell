@@ -1,6 +1,6 @@
 ## 一些应用服务
 
-> fwVimrcInstall.sh
+> fwVimrcInstall.sh  
 > `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/fwVimrcInstall.sh | sh`
 
 > installDocker.sh  
