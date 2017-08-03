@@ -95,7 +95,28 @@ cd ${arch_path_php}
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
 # 开启调试模式加 --enable-debug，更多请看 ./configure --help.
-./configure --with-libdir=lib64 --prefix=${php_path} --with-mysqli --with-pdo-mysql=/usr/local/mysql --enable-inline-optimization --enable-fpm --with-freetype-dir=/usr/local/freetype --with-gd --with-zlib --with-png-dir --with-jpeg-dir --enable-mbstring --with-iconv --enable-sockets --with-curl --with-openssl --enable-pcntl --enable-soap --enable-calendar --enable-opcache=no
+./configure \
+--with-libdir=lib64 \
+--prefix=${php_path} \
+--with-mysqli \
+--with-pdo-mysql=/usr/local/mysql \
+--enable-inline-optimization \
+--enable-fpm \
+--with-freetype-dir=/usr/local/freetype \
+--with-gd \
+--with-zlib \
+--with-png-dir \
+--with-jpeg-dir \
+--enable-mbstring \
+--with-iconv \
+--enable-sockets \
+--with-curl \
+--with-openssl \
+--enable-pcntl \
+--enable-soap \
+--enable-calendar \
+--enable-opcache=no \
+--enable-bcmath
 
 echo "编译PHP..."
 
