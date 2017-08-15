@@ -3,7 +3,7 @@
 # @farwish.com BSD-License
 
 # 0.Dependency
-#yum install -y yum-utils device-mapper-persistent-data lvm2
+yum install -y yum-utils device-mapper-persistent-data lvm2
 
 # 1.Set up the stable repository
 dockerCeRepo=/etc/yum.repos.d/docker-ce.repo
