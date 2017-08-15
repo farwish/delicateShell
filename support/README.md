@@ -8,6 +8,10 @@
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/installDocker.sh | sh`   
 
+* installDockerCE.sh (New)  
+
+`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/installDockerCE.sh | sh`   
+
 * installXunsearch.sh  
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/installXunsearch.sh | sh`  
