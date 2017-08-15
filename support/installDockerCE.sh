@@ -28,7 +28,7 @@ if test -n $newestVersion; then
 
     # Install the latest version of docker-ce : yum install docker-ce
     #yum install docker-ce-<VERSION>
-    yum install docker-ce-$newestVersion
+    yum install -y docker-ce-$newestVersion
 
     # Start docker
     systemctl start docker
