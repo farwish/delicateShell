@@ -155,6 +155,6 @@ esac
 
 ```
 $ ln -s /usr/local/redis/bin/init.d.redis /etc/init.d/redis
-$ redis start
-$ redis stop
+$ service redis start
+$ service redis stop
 ```
