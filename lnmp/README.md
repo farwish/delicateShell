@@ -1,39 +1,38 @@
-## lnmp环境独立安装脚本.
+## lnmp独立安装脚本
 
 可在ECS的CentOS7.0-64bit系统(标准镜像)中可靠运行。
 
 推荐运行顺序 ( 非强制 )：  
 * 当遇到提示你的系统缺少某个库时, 用yum安装好依赖, make clean 之后再执行一次安装脚本。  
 
----
-
-### installMysql.sh ( Fixed version MySQL-5.7.15 )  
+installMysql.sh ( Fixed version MySQL-5.7.15 )  
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh`  
 
-### installNginx.sh ( Not recommend old script, use fwNginxInstall.sh instead )  
+installNginx.sh ( Not recommend old script, use fwNginxInstall.sh instead )  
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
 
-### fwNginxInstall.sh ( Can choose version, default nginx-1.10.1 )    
+fwNginxInstall.sh ( Can choose version, default nginx-1.10.1 )    
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/fwNginxInstall.sh | sh`    
 
-### installPhpUseDefaultLibpng.sh  ( Fixed version php-5.6.25 )  
+installPhpUseDefaultLibpng.sh  ( Fixed version php-5.6.25 )  
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
 
-### installPhp7.sh  ( Can choose version, default php-7.1.4 )  
+installPhp7.sh  ( Can choose version, default php-7.1.4 )  
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh`  
 
-### installRedis.sh ( Fixed version redis-3.2.4 )   
+installRedis.sh ( Fixed version redis-3.2.4 )   
 
 `curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
 
-## 管理.
+## 进程管理
 
 [ nginx ]
+---
 
 方式1 - 依靠在 /etc/profile 指定命令的PATH使用:  
 ```
@@ -51,6 +50,7 @@ $ service nginx -s quit
 ```
 
 [ mysql ]
+---
 
 方式1:  
 ```
@@ -64,6 +64,7 @@ $ service mysql {start|stop|restart|reload|force-reload|status}
 ```
 
 [ php-fpm ]
+---
 
 方式1:  
 ```
@@ -77,6 +78,7 @@ $ service fpm {start|stop|force-quit|restart|reload|status}
 ```
 
 [ redis ]
+---
 
 方式1:  
 ```
@@ -89,4 +91,52 @@ $ kill $(cat /var/run/redis_6379.pid)
 ```
 自己源码编译安装Redis不会生成启动脚本, 用官方的 utils/install_server.sh 安装后有启动脚本 /etc/init.d/redis_6379
 官方的启动脚本模版为 utils/redis_init_script, 自行编写可以参考。
+以下是提供的一个init脚本。
+```
+
+/usr/local/redis/bin/init.d.redis
+```
+#!/bin/sh
+
+PREFIX=/usr/local/redis/
+SERVER=${PREFIX}bin/redis-server
+CLI=${PREFIX}bin/redis-cli
+
+CONF=${PREFIX}etc/redis.conf
+PIDFILE=/var/run/redis_6379.pid
+
+case "$1" in
+        start)
+                if [ -f $PIDFILE ]; then
+                        echo "$PIDFILE exists, process is already running or crashed"
+                else
+                        echo "Starting Redis server..."
+                        $SERVER $CONF
+                fi
+        ;;
+        stop)
+                if [ ! -f $PIDFILE ]; then
+                        echo "$PIDFILE does not exists, process is not running"
+                else
+                        PID=$(cat $PIDFILE)
+                        #$CLI -p $PID shutdown
+                        kill $PID
+                        while [ -x /proc/${PID} ]
+                        do
+                                echo "Waiting for Redis to shutdown..."
+                                sleep 1
+                        done
+                        echo "Redis stopped"
+                fi
+        ;;
+        *)
+                echo "Use start or stop as first argument"
+        ;;
+esac
+```
+
+```
+$ ln -s /usr/local/redis/bin/init.d.redis /etc/init.d/redis
+$ redis start
+$ redis stop
 ```
