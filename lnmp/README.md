@@ -1,33 +1,51 @@
-## lnmp独立安装脚本
+## LNMP独立安装脚本
 
 可在ECS的CentOS7.0-64bit系统(标准镜像)中可靠运行。
 
-推荐运行顺序 ( 非强制 )：  
-* 当遇到提示你的系统缺少某个库时, 用yum安装好依赖, make clean 之后再执行一次安装脚本。  
+## 推荐运行顺序  
 
-installMysql.sh ( Fixed version MySQL-5.7.15 )  
+当遇到提示你的系统缺少某个库时, 用yum安装好依赖, make clean 之后再执行一次安装脚本。  
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh`  
+installMysql.sh ( Fixed version MySQL-5.7.15 )
 
-installNginx.sh ( Not recommend old script, use fwNginxInstall.sh instead )  
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installMysql.sh | sh
+```
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh`  
 
-fwNginxInstall.sh ( Can choose version, default nginx-1.10.1 )    
+installNginx.sh ( Not recommend old script, use fwNginxInstall.sh instead )
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/fwNginxInstall.sh | sh`    
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installNginx.sh | sh
+```
 
-installPhpUseDefaultLibpng.sh  ( Fixed version php-5.6.25 )  
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh`  
+fwNginxInstall.sh ( Can choose version, default nginx-1.10.1 )
 
-installPhp7.sh  ( Can choose version, default php-7.1.4 )  
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/fwNginxInstall.sh | sh
+```
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh`  
 
-installRedis.sh ( Fixed version redis-3.2.4 )   
+installPhpUseDefaultLibpng.sh  ( Fixed version php-5.6.25 )
 
-`curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh`  
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhpUseDefaultLibpng.sh | sh
+```
+
+
+installPhp7.sh  ( Can choose version, default php-7.1.4 )
+
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installPhp7.sh | sh
+```
+
+
+installRedis.sh ( Fixed version redis-3.2.4 )
+
+```
+$ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/lnmp/installRedis.sh | sh
+```
 
 ## 进程管理
 
