@@ -217,7 +217,7 @@ elif test -e /etc/lsb-release; then
     os_release=`cat /etc/lsb-release | grep RELEASE | cut -d = -f 2`
 
     # @see https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#os-requirements
-    if [ "$os_codename" == 'zesty' -a "$os_release" == '17.04' ] || [ "$os_codename" == 'xenial' -a "$os_release" == '16.04' ] || [ "$os_codename" == 'zesty' -a "$os_release" == '17.04' ] || [ "$os_codename" == 'trusty' -a "$os_release" == '14.04' ]; then
+    if [ "$os_codename" == "zesty" -a "$os_release" == "17.04" ] || [ "$os_codename" == "xenial" -a "$os_release" == "16.04" ] || [ "$os_codename" == "zesty" -a "$os_release" == "17.04" ] || [ "$os_codename" == "trusty" -a "$os_release" == "14.04" ]; then
         echo "Ubuntu version check crossed."
 
         do_ubuntu_install
