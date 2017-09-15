@@ -189,6 +189,8 @@ do_ubuntu_upgrade() {
 
 do_ubuntu_uninstall() {
     apt-get purge -y docker-ce
+
+    groupdel docker
     
     echo -e "
 Finished!\n
