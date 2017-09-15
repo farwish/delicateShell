@@ -15,7 +15,11 @@ curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/
 installDockerCE.sh (New Docker CE)  
 
 ```
+# CentOS
 curl -sS https://raw.githubusercontent.com/farwish/delicateShell/master/support/installDockerCE.sh | sh   
+
+# Ubuntu
+wget https://raw.githubusercontent.com/farwish/delicateShell/master/support/installDockerCE.sh && chmod +x installDockerCE.sh && ./installDockerCE.sh && rm -f installDockerCE.sh
 ```
 
 installXunsearch.sh (Fixed version 1.4.10)  
