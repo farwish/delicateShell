@@ -149,7 +149,7 @@ do_ubuntu_install() {
     apt-get update -y
 
     # 1
-    pt-get install \
+    apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -168,6 +168,12 @@ do_ubuntu_install() {
     # Install latest version of Docker CE
     apt-get update -y
     apt-get install -y docker-ce
+
+    echo -e "
+完成!\n
+要将普通用户加入docker组, 执行 'usermod -aG docker weichen'
+要使新加入docker组的用户生效(能执行 docker 命令), 请重启操作系统.\n"
+
 }
 
 # Upgrade
@@ -206,9 +212,9 @@ if test -e /etc/centos-release; then
 
 elif test -e /etc/lsb-release; then 
 
-    os_codename=`cat /etc/lsb-release | grep CODENAME | cut -d = -f 2`
-    #os_release=`cat /etc/lsb-release | grep RELEASE | cut -d = -f 2`
-    os_release=`lsb_release -cs`
+    #os_codename=`cat /etc/lsb-release | grep CODENAME | cut -d = -f 2`
+    os_codename=`lsb_release -cs`
+    os_release=`cat /etc/lsb-release | grep RELEASE | cut -d = -f 2`
 
     # @see https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#os-requirements
     if [ os_codename == 'zesty' -a os_release == '17.04' ] || [ os_codename == 'xenial' -a os_release == '16.04' ] || [ os_codename == 'zesty' -a os_release == '17.04' ] || [ os_codename == 'trusty' -a os_release == '14.04' ]; then
