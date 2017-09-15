@@ -24,6 +24,32 @@ arch_check() {
     esac
 }
 
+# Execute start, autostart, groupadd in sequence at the docker
+
+execute_start_autostart_groupadd() {
+
+    # Start docker
+    systemctl start docker
+
+    # Auto start docker
+    systemctl enable docker.service
+
+    # Verify docker is installed correctly by running the hello-world image
+    docker run hello-world
+
+    # Docker Group
+    gname=`cat /etc/group | grep docker | cut -d : -f 1`
+
+    if [ -z $gname ]; then
+        groupadd docker
+    fi
+
+    echo -e "
+完成!\n
+要将普通用户加入docker组, 执行如 'usermod -aG docker weichen'
+要使新加入docker组的用户生效(能执行 docker 命令), 请重启操作系统.\n"
+}
+
 ################### CentOS ####################
 
 # Remove older versions of Docker on CentOS, not DockerCE
@@ -75,27 +101,7 @@ do_centos_install() {
         #yum install docker-ce-<VERSION>
         yum install -y docker-ce-$newestVersion
 
-        # Start docker
-        systemctl start docker
-
-        # Auto start docker
-        systemctl enable docker.service
-
-        # Verify docker is installed correctly by running the hello-world image
-        docker run hello-world
-
-        # Docker Group
-        gname=`cat /etc/group | grep docker | cut -d : -f 1`
-
-        if [ -z $gname ]; then
-            groupadd docker
-        fi
-
-        echo -e "
-完成!\n
-要将普通用户加入docker组, 执行 'usermod -aG docker weichen'
-要使新加入docker组的用户生效(能执行 docker 命令), 请重启操作系统.\n"
-
+        execute_start_autostart_groupadd
     else
         echo "No valid version of docker-ce."
     fi
@@ -169,11 +175,7 @@ do_ubuntu_install() {
     apt-get update -y
     apt-get install -y docker-ce
 
-    echo -e "
-完成!\n
-要将普通用户加入docker组, 执行 'usermod -aG docker weichen'
-要使新加入docker组的用户生效(能执行 docker 命令), 请重启操作系统.\n"
-
+    execute_start_autostart_groupadd
 }
 
 # Upgrade
