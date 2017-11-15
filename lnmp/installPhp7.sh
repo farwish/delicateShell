@@ -4,6 +4,8 @@
 #      2. 数据库扩展使用官方推荐的mysqlnd，配置--with-mysql会有WARNING提示不推荐使用，所以这里不加.
 # @farwish.com BSD-License
 
+set -e
+
 # 存档目录
 arch_path=/opt/
 
