@@ -1,7 +1,7 @@
 #!/bin/bash
-# centos7安装php7. (先装MySQL, From git repo)
+# centos7安装php7.
 # 备注：1. PHP不支持最新libpng、libjpeg, 所以本脚本中用yum安装这个两个依赖包.
-#       2. 默认只支持mysqli/PDO, 不再支持--with-mysql.
+#      2. 数据库扩展使用官方推荐的mysqlnd，配置--with-mysql会有WARNING提示不推荐使用，所以这里不加.
 # @farwish.com BSD-License
 
 # 存档目录
@@ -91,15 +91,17 @@ cd ${arch_path_php}
 
 ./buildconf --force
 
-# 要使用非pdo等其它驱动，推荐使用mysqlnd：http://php.net/manual/en/mysqlinfo.library.choosing.php
-# ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
+# 官方推荐使用mysqlnd支持mysqli/pdo/mysql：http://php.net/manual/en/mysqlinfo.library.choosing.php
+# ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --enable-mysqlnd [--with-mysql=mysqlnd 不推荐使用]
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
+# 已开启线程安全(ZTS) --enable-maintainer-zts
 # 开启调试模式加 --enable-debug，更多请看 ./configure --help.
 ./configure \
 --with-libdir=lib64 \
 --prefix=${php_path} \
---with-mysqli \
---with-pdo-mysql=/usr/local/mysql \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--enable-mysqlnd \
 --enable-inline-optimization \
 --enable-fpm \
 --with-freetype-dir=/usr/local/freetype \
@@ -116,7 +118,8 @@ cd ${arch_path_php}
 --enable-soap \
 --enable-calendar \
 --enable-opcache=no \
---enable-bcmath
+--enable-bcmath \
+--enable-maintainer-zts \
 
 echo "编译PHP..."
 
