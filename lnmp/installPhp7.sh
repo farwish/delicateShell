@@ -96,7 +96,7 @@ cd ${arch_path_php}
 # 官方推荐使用mysqlnd支持mysqli/pdo/mysql：http://php.net/manual/en/mysqlinfo.library.choosing.php
 # ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --enable-mysqlnd [--with-mysql=mysqlnd 不推荐使用]
 # 注意：不使用上面下载的最新libpng、libjpeg，PHP不支持，就用yum安装的.
-# 已开启线程安全(ZTS) --enable-maintainer-zts
+# 开启线程安全(ZTS)加 --enable-maintainer-zts
 # 开启调试模式加 --enable-debug，更多请看 ./configure --help.
 ./configure \
 --with-libdir=lib64 \
@@ -122,7 +122,6 @@ cd ${arch_path_php}
 --enable-calendar \
 --enable-opcache=no \
 --enable-bcmath \
---enable-maintainer-zts \
 
 echo "编译PHP..."
 
