@@ -1,7 +1,7 @@
 #!/bin/bash
 # centos7安装php7.
 # 备注：1. PHP不支持最新libpng、libjpeg, 所以本脚本中用yum安装这个两个依赖包.
-#      2. 数据库扩展使用官方推荐的mysqlnd, 配置--with-mysql会有WARNING提示不推荐使用, 所以这里不加, 重复安装记住执行make clean.
+#      2. 数据库扩展使用官方推荐的mysqlnd, 配置--with-mysql会有WARNING提示不推荐使用, 重复安装记住执行make clean.
 # @farwish.com BSD-License
 
 set -e
@@ -103,6 +103,7 @@ cd ${arch_path_php}
 --prefix=${php_path} \
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
+--with-mysql \
 --enable-mysqlnd \
 --enable-inline-optimization \
 --enable-fpm \
