@@ -44,9 +44,12 @@ cp ${redis_src}/redis.conf ${redis_install_path}/etc/
 
 #sh "$redis_src"/utils/install_server.sh
 
-# 注意：解决可能的WARNING；不要重复安装哦
+# ===== 注意：解决可能的WARNING；不要重复安装哦 =====
 ulimit -n 10032
 echo '* soft nofile 10032' >> /etc/security/limits.conf
+
+echo 'vm.overcommit_memory = 1' >> /etc/sysctl.conf
+sysctl vm.overcommit_memory=1
 
 echo 511 > /proc/sys/net/core/somaxconn
 echo 'net.core.somaxconn = 551' >> /etc/sysctl.conf
@@ -55,6 +58,7 @@ echo never > /sys/kernel/mm/transparent_hugepage/defrag
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 echo 'echo never >> /sys/kernel/mm/transparent_hugepage/defrag' >> /etc/rc.local
 echo 'echo never >> /sys/kernel/mm/transparent_hugepage/enabled' >> /etc/rc.local
+# ===== /注意：解决可能的WARNING；不要重复安装哦 =====
 
 # 加自启动
 echo '/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf &' >> /etc/rc.local
