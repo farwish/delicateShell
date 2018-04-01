@@ -59,7 +59,7 @@ yum install -y zlib-devel.x86_64
 
 echo "...Congiure Nginx..."
 
-./configure --prefix=${nginxInstallDir} --conf-path=${nginxInstallDir}conf/nginx.conf
+./configure --prefix=${nginxInstallDir} --conf-path=${nginxInstallDir}conf/nginx.conf --with-http_ssl_module
 
 make && make install
 
