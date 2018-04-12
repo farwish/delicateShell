@@ -45,9 +45,11 @@ execute_start_autostart_groupadd() {
     fi
 
     # 除root外，需要执行docker命令的用户加入docker组
-    usermod -aG docker $USER
+    # usermod -aG docker $USER
 
     echo -e "
+完成!\n		
+要将普通用户加入docker组, 执行如 'usermod -aG docker weichen'
 要使新加入docker组的用户生效(能执行 docker 命令), 请重启操作系统.\n"
 }
 
